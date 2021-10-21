@@ -30,6 +30,8 @@ export default {
   name: 'Detail',
   setup() {
     const store = useStore();
+    const getPost =  () => store.dispatch('getPost').postStore;
+    getPost()
     const listPost = computed(() => store.state.postStore.listPost);
     return {
       listPost

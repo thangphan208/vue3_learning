@@ -6,11 +6,12 @@ const postStore = {
     },
     mutations: {
         SET_POSTS: (state, payload) => {
-            this.state.listPost = payload
+            state.listPost = payload
         }
     },
     actions: {
         getPost({commit}) {
+            console.log("go to post store")
             const {group, getPosts} = useFetchPosts();
             getPosts();
             console.log(group);
