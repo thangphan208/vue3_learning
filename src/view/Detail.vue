@@ -11,7 +11,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(item, index) in group" :key="index">
+      <tr v-for="(item, index) in listPost" :key="index">
         <td>{{ item.userId }}</td>
         <td>{{ item.id }}</td>
         <td>{{ item.title }}</td>
@@ -23,16 +23,16 @@
 </template>
 
 <script>
-import useFetchPosts from '../use/fetchPosts';
+import {computed} from "vue";
+import {useStore} from "vuex";
 
 export default {
   name: 'Detail',
   setup() {
-    const {group, getPosts} = useFetchPosts();
-    getPosts();
-    console.log(group)
+    const store = useStore();
+    const listPost = computed(() => store.state.postStore.listPost);
     return {
-      group
+      listPost
     }
   }
 }
