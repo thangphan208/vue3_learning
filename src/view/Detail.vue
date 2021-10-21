@@ -30,8 +30,11 @@ export default {
   name: 'Detail',
   setup() {
     const store = useStore();
-    const getPost =  () => store.dispatch('getPost').postStore;
-    getPost()
+
+    //call to store get api and set to state
+    store.dispatch('getPost').postStore;
+
+    //get data from state vuex
     const listPost = computed(() => store.state.postStore.listPost);
     return {
       listPost
